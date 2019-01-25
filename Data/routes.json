@@ -1,0 +1,3 @@
+{
+  "/customers/:id/surveys/:survey_id": "/customers/:id/surveys?id=:survey_id"
+}

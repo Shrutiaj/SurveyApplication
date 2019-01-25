@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="row mb-3">
+  <div class="accordion col-sm-3" id="accordionExample">
+    <div class="card" *ngFor="let customer of customers; index as i; first as isFirst">
+      <div class="card-header" id="{{'heading' + i}}">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse' + i"  aria-expanded="true" aria-controls="collapseOne">
+              {{customer.customer_name}}
+          </button>
+        </h2>
+      </div>
+
+      <div id="{{'collapse'+i}}" [ngClass]="{'collapse' : true, 'show' : i == 0}" [attr.aria-labelledby]="'heading' + i" data-parent="#accordionExample" >
+        <div class="card-body" *ngFor="let survey of customer.surveys">
+          <a [routerLink]="['survey', customer.customer_id, survey.id]">{{survey.survey_name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="survey_detail col-sm-9 pt-3 pb-3">
+      <router-outlet></router-outlet>
+  </section>
+  <section class="all_completed col-sm-12">
+
+  </section>
+</div>

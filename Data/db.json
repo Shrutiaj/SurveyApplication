@@ -1,0 +1,204 @@
+{
+  "customers": [
+    {
+      "customer_name": "Amazon",
+      "customer_id": 1,
+      "id": 1,
+      "surveys": [
+        {
+          "survey_name": "Product Survey",
+          "id": "s1"
+        },
+        {
+          "survey_name": "Market Research",
+          "id": "s2"
+        }
+      ]
+    },
+    {
+      "customer_name": "Walmart",
+      "customer_id": 2,
+      "id": 2,
+      "surveys": [
+        {
+          "survey_name": "Online Habits",
+          "id": "s3"
+        },
+        {
+          "survey_name": "Employee Satisfaction",
+          "id": "s4"
+        },
+        {
+          "survey_name": "Customer Service",
+          "id": "s5"
+        }
+      ]
+    }
+  ],
+  "surveys": [
+    {
+      "id": "s1",
+      "customerId": "1",
+      "survey_name": "Product Survey",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the primary benefit that you have received from (product or service name)?",
+          "answer": ""
+        },
+        {
+          "id": 2,
+          "question": "What are the top three benefits you get from (product or service name)?",
+          "answer": ""
+        },
+        {
+          "id": 3,
+          "question": "How would you feel if you could no longer use (product or service name)? Why?",
+          "answer": ""
+        },
+        {
+          "id": 4,
+          "question": "What would you likely use as an alternative to (product or company name) if it were no longer available?",
+          "answer": ""
+        },
+        {
+          "id": 5,
+          "question": "Have you recommended (product or company name) to anyone? If so how did you describe it?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "customerId": "1",
+      "survey_name": "Market Research",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What’s the biggest challenge you currently face in your role?",
+          "answer": ""
+        },
+        {
+          "id": 2,
+          "question": "What are your 3-6 month goals in your role?",
+          "answer": ""
+        },
+        {
+          "id": 3,
+          "question": "What the biggest stress in your job?",
+          "answer": ""
+        },
+        {
+          "id": 4,
+          "question": "What are the biggest obstacles to achieving your goals?",
+          "answer": ""
+        },
+        {
+          "id": 5,
+          "question": "What would hold you back from making a purchasing decision?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "customerId": "2",
+      "survey_name": "Online Habits",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What social media networks do you use regularly?",
+          "answer": ""
+        },
+        {
+          "id": 2,
+          "question": "Are you active in any LinkedIn groups, Facebook groups, or other online communities?",
+          "answer": ""
+        },
+        {
+          "id": 3,
+          "question": "Are there any YouTube channels in X industry that you subscribe to?",
+          "answer": ""
+        },
+        {
+          "id": 4,
+          "question": "Where do you spend the most time online?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "customerId": "2",
+      "survey_name": "Employee Satisfaction",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Would you recommend a friend or colleague to work at our company? Why?",
+          "answer": ""
+        },
+        {
+          "id": 2,
+          "question": "During a typical week, how often do you feel stressed at work?",
+          "answer": ""
+        },
+        {
+          "id": 3,
+          "question": "How well are you paid for the work you do?",
+          "answer": ""
+        },
+        {
+          "id": 4,
+          "question": "Do you see yourself working here one year from now?",
+          "answer": ""
+        },
+        {
+          "id": 5,
+          "question": "If you were to quit tomorrow, what would your reason be?",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "customerId": "2",
+      "survey_name": "Customer Service",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Why did your purchase from our company?",
+          "answer": ""
+        },
+        {
+          "id": 2,
+          "question": "How did you find our website?",
+          "answer": ""
+        },
+        {
+          "id": 3,
+          "question": "Was it easy to find the products you wanted?",
+          "answer": ""
+        },
+        {
+          "id": 4,
+          "question": "Are you satisfied with the product or service you ordered?",
+          "answer": ""
+        },
+        {
+          "id": 5,
+          "question": "How can we improve our purchase process?",
+          "answer": ""
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "user1",
+      "password": "pass1",
+      "submitedSurveys": [
+        {}
+      ]
+    }
+  ]
+}

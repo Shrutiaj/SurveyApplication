@@ -1,0 +1,7 @@
+{
+    "/customers/:id" : {
+      "PUT" : "/surveys?survey_id=:sid"
+    },
+    "/customers/:id/surveys/:survey_id": "/customers/:id/surveys?survey_id=:survey_id",
+    "/surveys/:survey_id" : "/surveys"
+  }

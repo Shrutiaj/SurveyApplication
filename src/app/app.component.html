@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row mb-3">
+      <div class="col-sm-12">
+        <header class="p-5 bg-gradient-secondary">
+          <a routerLink="/" class="logo float-left col-3">{{ siteTitle }}</a>
+          <nav class=".bg-gradient-secondary col-9">
+            <ul class="float-right">
+              <li><a routerLink="/">Home</a></li>
+              <!--<li><a routerLink="/about">Completed Surveys</a></li>
+              <li><a routerLink="/cart">Surveys from other users</a></li>-->
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <section class="survey_detail col-sm-12 pt-3 pb-3">
+          <router-outlet></router-outlet>
+      </section>
+    </div>

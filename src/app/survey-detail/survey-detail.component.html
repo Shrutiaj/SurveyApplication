@@ -1,0 +1,13 @@
+<div>
+  <article *ngFor="let survey of survey">
+    <h3>{{survey.survey_name}}</h3>
+    <form #surveyForm="ngForm" (ngSubmit) = "onSubmit()">
+      <div class="questions form-group" *ngFor="let question of survey.questions">
+          <label for="q{{question.id}}">{{question.question}}</label><br/>
+          <textarea rows="3" cols="60" id="q{{question.id}}" class="form-control" name="answer{{question.id}}" [(ngModel)]="question.answer"></textarea>
+      </div>
+      <button class="btn btn-secondary" type="submit">Save</button>
+  </form>
+  </article>
+
+</div>
