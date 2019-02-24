@@ -7,11 +7,11 @@
       "surveys": [
         {
           "survey_name": "Product Survey",
-          "id": "s1"
+          "id": "1"
         },
         {
           "survey_name": "Market Research",
-          "id": "s2"
+          "id": "2"
         }
       ]
     },
@@ -22,22 +22,22 @@
       "surveys": [
         {
           "survey_name": "Online Habits",
-          "id": "s3"
+          "id": "3"
         },
         {
           "survey_name": "Employee Satisfaction",
-          "id": "s4"
+          "id": "4"
         },
         {
           "survey_name": "Customer Service",
-          "id": "s5"
+          "id": "5"
         }
       ]
     }
   ],
   "surveys": [
     {
-      "id": "s1",
+      "id": "1",
       "customerId": "1",
       "survey_name": "Product Survey",
       "questions": [
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "id": "s2",
+      "id": "2",
       "customerId": "1",
       "survey_name": "Market Research",
       "questions": [
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "id": "s3",
+      "id": "3",
       "customerId": "2",
       "survey_name": "Online Habits",
       "questions": [
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "id": "s4",
+      "id": "4",
       "customerId": "2",
       "survey_name": "Employee Satisfaction",
       "questions": [
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "id": "s5",
+      "id": "5",
       "customerId": "2",
       "survey_name": "Customer Service",
       "questions": [
@@ -194,11 +194,278 @@
   ],
   "users": [
     {
+      "id": "somesoni2",
+      "password": "cus123"
+    },
+    {
       "id": "user1",
-      "password": "pass1",
-      "submitedSurveys": [
-        {}
-      ]
+      "password": "pass1"
+    },
+    {
+      "id": "somesoni3",
+      "password": "ils25"
+    }
+  ],
+  "checkpoint": [
+    {
+      "id": 1,
+      "nextSurveyId": "s9"
+    }
+  ],
+  "submitedSurveys": [
+    {
+      "id": "s1",
+      "customerId": "1",
+      "survey_name": "Product Survey",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the primary benefit that you have received from (product or service name)?",
+          "answer": "Test"
+        },
+        {
+          "id": 2,
+          "question": "What are the top three benefits you get from (product or service name)?",
+          "answer": "Test"
+        },
+        {
+          "id": 3,
+          "question": "How would you feel if you could no longer use (product or service name)? Why?",
+          "answer": "Test"
+        },
+        {
+          "id": 4,
+          "question": "What would you likely use as an alternative to (product or company name) if it were no longer available?",
+          "answer": "Test"
+        },
+        {
+          "id": 5,
+          "question": "Have you recommended (product or company name) to anyone? If so how did you describe it?",
+          "answer": "From Somesh"
+        }
+      ],
+      "userId": "user1"
+    },
+    {
+      "id": "s2",
+      "customerId": "1",
+      "survey_name": "Market Research",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What’s the biggest challenge you currently face in your role?",
+          "answer": "Test"
+        },
+        {
+          "id": 2,
+          "question": "What are your 3-6 month goals in your role?",
+          "answer": "Test"
+        },
+        {
+          "id": 3,
+          "question": "What the biggest stress in your job?",
+          "answer": "Test"
+        },
+        {
+          "id": 4,
+          "question": "What are the biggest obstacles to achieving your goals?",
+          "answer": "TestTestTest"
+        },
+        {
+          "id": 5,
+          "question": "What would hold you back from making a purchasing decision?",
+          "answer": "Test"
+        }
+      ],
+      "userId": "user1"
+    },
+    {
+      "id": "s3",
+      "customerId": "2",
+      "survey_name": "Online Habits",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What social media networks do you use regularly?",
+          "answer": "Test"
+        },
+        {
+          "id": 2,
+          "question": "Are you active in any LinkedIn groups, Facebook groups, or other online communities?",
+          "answer": "Test"
+        },
+        {
+          "id": 3,
+          "question": "Are there any YouTube channels in X industry that you subscribe to?",
+          "answer": "Test"
+        },
+        {
+          "id": 4,
+          "question": "Where do you spend the most time online?",
+          "answer": "Test"
+        }
+      ],
+      "userId": "user1"
+    },
+    {
+      "id": "s4",
+      "customerId": "2",
+      "survey_name": "Employee Satisfaction",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Would you recommend a friend or colleague to work at our company? Why?",
+          "answer": "Test"
+        },
+        {
+          "id": 2,
+          "question": "During a typical week, how often do you feel stressed at work?",
+          "answer": "Test"
+        },
+        {
+          "id": 3,
+          "question": "How well are you paid for the work you do?",
+          "answer": "Test"
+        },
+        {
+          "id": 4,
+          "question": "Do you see yourself working here one year from now?",
+          "answer": "Test"
+        },
+        {
+          "id": 5,
+          "question": "If you were to quit tomorrow, what would your reason be?",
+          "answer": "Test"
+        }
+      ],
+      "userId": "user1"
+    },
+    {
+      "id": "s5",
+      "customerId": "1",
+      "survey_name": "Product Survey",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the primary benefit that you have received from (product or service name)?",
+          "answer": "Test"
+        },
+        {
+          "id": 2,
+          "question": "What are the top three benefits you get from (product or service name)?",
+          "answer": "Test"
+        },
+        {
+          "id": 3,
+          "question": "How would you feel if you could no longer use (product or service name)? Why?",
+          "answer": "Test"
+        },
+        {
+          "id": 4,
+          "question": "What would you likely use as an alternative to (product or company name) if it were no longer available?",
+          "answer": "Test"
+        },
+        {
+          "id": 5,
+          "question": "Have you recommended (product or company name) to anyone? If so how did you describe it?",
+          "answer": "Test"
+        }
+      ],
+      "userId": "somesoni2"
+    },
+    {
+      "id": "s6",
+      "customerId": "2",
+      "survey_name": "Employee Satisfaction",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Would you recommend a friend or colleague to work at our company? Why?",
+          "answer": "Testing is crazy"
+        },
+        {
+          "id": 2,
+          "question": "During a typical week, how often do you feel stressed at work?",
+          "answer": "Test"
+        },
+        {
+          "id": 3,
+          "question": "How well are you paid for the work you do?",
+          "answer": "Test"
+        },
+        {
+          "id": 4,
+          "question": "Do you see yourself working here one year from now?",
+          "answer": "Test"
+        },
+        {
+          "id": 5,
+          "question": "If you were to quit tomorrow, what would your reason be?",
+          "answer": "Test"
+        }
+      ],
+      "userId": "somesoni2"
+    },
+    {
+      "id": "s7",
+      "customerId": "1",
+      "survey_name": "Market Research",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What’s the biggest challenge you currently face in your role?",
+          "answer": "I'm the best"
+        },
+        {
+          "id": 2,
+          "question": "What are your 3-6 month goals in your role?",
+          "answer": "I'm the best"
+        },
+        {
+          "id": 3,
+          "question": "What the biggest stress in your job?",
+          "answer": "I'm the best"
+        },
+        {
+          "id": 4,
+          "question": "What are the biggest obstacles to achieving your goals?",
+          "answer": "I'm the best"
+        },
+        {
+          "id": 5,
+          "question": "What would hold you back from making a purchasing decision?",
+          "answer": "I'm the best"
+        }
+      ],
+      "userId": "somesoni2"
+    },
+    {
+      "id": "s8",
+      "customerId": "2",
+      "survey_name": "Online Habits",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What social media networks do you use regularly?",
+          "answer": "Itna andhera kyu hai bhai?"
+        },
+        {
+          "id": 2,
+          "question": "Are you active in any LinkedIn groups, Facebook groups, or other online communities?",
+          "answer": "Itna andhera kyu hai bhai?"
+        },
+        {
+          "id": 3,
+          "question": "Are there any YouTube channels in X industry that you subscribe to?",
+          "answer": "Itna andhera kyu hai bhai?"
+        },
+        {
+          "id": 4,
+          "question": "Where do you spend the most time online?",
+          "answer": "Itna andhera kyu hai bhai? heh"
+        }
+      ],
+      "userId": "somesoni2"
     }
   ]
 }

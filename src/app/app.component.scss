@@ -1,8 +1,15 @@
 header{
+    background-color: #34495E;
     ul{
         li{
             display: inline;
             list-style: none;
         }
     }
+    a{
+        color: #FFF;
+    }
+}
+.view_container{
+    padding-left: 0;
 }

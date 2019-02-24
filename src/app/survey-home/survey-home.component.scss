@@ -1,0 +1,29 @@
+.surveyHome{
+    border-bottom: 5px solid #486684;
+    .accordion {
+        padding-right: 0;
+        padding-left: 0;
+        border-right: 5px solid #486684;
+        min-height: 500px;
+        .card{
+            border: 0 none;
+            border-radius: unset;
+            .card-header:first-child{
+                border-radius: unset;
+            }
+        }
+        .card .card-header{
+            background-color: #486684;
+        }
+    }
+    .btn{
+        color: #FFF;
+    }
+    .survey_detail{
+        padding-left: 0;
+        a{
+            cursor: pointer;
+            color: #007bff;
+        }
+    }
+}

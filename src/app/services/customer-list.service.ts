@@ -10,13 +10,16 @@ export class CustomerListService {
 
   constructor(private http: HttpClient) { }
 
+  //Get the customers list
   getCustomerList(): Observable<any>{
-    return this.http.get("http://localhost:3000/customers")
+    return this.http.get("http://localhost:8080/service/customerSurveyList/all")
               .pipe(map(response => {
+                console.log(response);
                 return response;                
               }));
   }
 
+  //Get the survey list for the particular customer as indicated in the "customer_id" parameter
   getSurvey(customer_id: string, survey_id: string): Observable<any>{
     return this.http.get(`http://localhost:3000/customers/${customer_id}/surveys/${survey_id}`)
                     .pipe(map(response => {
@@ -24,18 +27,27 @@ export class CustomerListService {
                     }))
   }
 
-  updateSurvey(customer_id: string, survey_id: string, completeSurvey){
-    console.log(completeSurvey);
+  //Get the list of surveys submitted by a particular user as indicated in the "username" paramter
+  getSubmittedSurvey(username: string, survey_id: string): Observable<any>{
+    return this.http.get(`http://localhost:3000/users/${username}/submitedSurveys/${survey_id}`)
+                    .pipe(map(response => {
+                      return response;
+                    }))
+  }
+
+  //Update the survey on the server depending on it is new submission or an  update to existing one
+  updateSurvey(customer_id: string, survey_id: string, completeSurvey, isSubmitted: string): Promise<any>{
     let body = JSON.stringify(completeSurvey[0]);
-    console.log(body);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     }
-    this.http.put(`http://localhost:3000/surveys/${survey_id}`,body, httpOptions).subscribe(
-      response =>console.log(response),
-      error => console.log(error)
-    );
+    if(isSubmitted == 'true'){
+      return this.http.put(`http://localhost:3000/submitedSurveys/${survey_id}`,body, httpOptions).toPromise();
+    }
+    else{
+      return this.http.post(`http://localhost:3000/submitedSurveys`,body, httpOptions).toPromise();
+    }
   }
 }

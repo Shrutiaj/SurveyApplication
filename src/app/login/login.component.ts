@@ -15,35 +15,22 @@ export class LoginComponent implements OnInit {
     password: "",
     submitedSurveys : []
   };
-  isValid: boolean = true;
+  private isValid;
+  private isSubmitted: boolean = false;
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-    this.loginService.getUsers().subscribe(
-      response => {
-        this.users = response;
-        console.log(this.users);
-      },
-      error => console.log(error)
-    )
   }
 
   onSubmit(){
-    this.users.forEach(
-      user => {
-        if(user.id == this.user.id && user.password == this.user.password){
-          this.isValid = true;
-        }
-        else{
-          //this.loginService.addUser(this.user);
-          this.isValid = false;
-        }
-      });
-      if(this.isValid){
-        this.router.navigateByUrl(`home/${this.user.id}`);
-      }
-      else{
-        console.log(this.isValid);
-      }
-    }
+    this.loginService.isUserValid().subscribe(
+      response => {
+        this.isValid = response;
+        if(this.isValid){
+          this.router.navigateByUrl(`home/${this.user.id}`);
+        };
+      },
+      error => console.log(error)
+    );
+  }
 }

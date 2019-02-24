@@ -1,3 +1,10 @@
-<p>
-  completed-surveys works!
-</p>
+<div class="completedSurveys">
+  <article>
+    <h4>List of Completed Surveys:</h4>
+    <ul>
+      <li *ngFor="let completedSurvey of completedSurveyList" class="p-2 mb-1">
+        <a [routerLink]="['/home/' + username + '/survey', completedSurvey.customerId, completedSurvey.id]" [queryParams]="{isSubmitted : 'true'}">{{completedSurvey.survey_name}}</a>
+      </li>
+    </ul>
+  </article>
+</div>

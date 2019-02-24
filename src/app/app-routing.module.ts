@@ -9,11 +9,10 @@ import { CompletedSurveysComponent } from './completed-surveys/completed-surveys
 const routes: Routes = [
   {path: "login", component: LoginComponent},
   {
-    path: "home/:username", 
-    component: SurveyHomeComponent,
+    path: "home/:username", component: SurveyHomeComponent,
     children: [
       {path: "surveyList", component: CompletedSurveysComponent},
-      {path: "survey/:customer_id/:survey_id", component: SurveyDetailComponent},
+      {path: "survey/:username/:survey_id", component: SurveyDetailComponent},
       {path: "", redirectTo: "surveyList", pathMatch: "full"}
     ]
   },
