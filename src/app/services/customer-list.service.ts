@@ -12,7 +12,7 @@ export class CustomerListService {
 
   //Get the customers list
   getCustomerList(): Observable<any>{
-    return this.http.get("http://localhost:8080/service/customerSurveyList/all")
+    return this.http.get("http://localhost:8080/customers/all")
               .pipe(map(response => {
                 console.log(response);
                 return response;                

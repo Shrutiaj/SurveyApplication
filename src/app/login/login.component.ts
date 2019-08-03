@@ -23,14 +23,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    this.loginService.isUserValid().subscribe(
+    //this.router.navigateByUrl(`home/${this.user.id}`);
+    this.isValid = this.loginService.isUserValid(this.user);
+    /* .subscribe(
       response => {
-        this.isValid = response;
+        this.isValid = true;
         if(this.isValid){
           this.router.navigateByUrl(`home/${this.user.id}`);
         };
       },
       error => console.log(error)
-    );
+    ); */
+    if(this.loginService.isUserValid(this.user)){
+      this.router.navigateByUrl(`home/${this.user.id}`);
+    };
   }
 }
