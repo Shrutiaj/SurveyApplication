@@ -1,31 +1,38 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { map } from "rxjs/operators";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class LoginService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  isUserValid(user){
-    return this.http.get("http://localhost:8080/user/isValid?username="+user.id+"&password="+user.password).subscribe(
-      response => response,
-      error => error
-    )
+  isUserValid(user) {
+    return this.http
+      .get(
+        "http://localhost:8080/user/isValid?username=" +
+          user.id +
+          "&password=" +
+          user.password
+      )
+      .pipe(
+        map((response) => {
+          return response;
+        })
+      );
   }
 
-  addUser(user){
+  addUser(user) {
     let body = JSON.stringify(user);
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    }
-    this.http.post("http://localhost:3000/users",body,httpOptions).subscribe(
-      response => console.log(response),
-      error => console.log(error)
-    )
-              
+        "Content-Type": "application/json",
+      }),
+    };
+    this.http.post("http://localhost:3000/users", body, httpOptions).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 }

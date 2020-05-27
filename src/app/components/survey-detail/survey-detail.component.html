@@ -1,0 +1,26 @@
+<div *ngIf="survey != {}">
+  <article>
+    <h3>{{ survey.survey_name }}</h3>
+    <form #surveyForm="ngForm" (ngSubmit)="onSubmit()">
+      <div
+        class="questions form-group"
+        *ngFor="let question of survey.surveyQuestions"
+      >
+        <label for="q{{ question.question_id }}">{{ question.question }}</label
+        ><br />
+        <textarea
+          rows="3"
+          cols="60"
+          id="q{{ question.question_id }}"
+          class="form-control"
+          name="answer{{ question.question_id }}"
+          [(ngModel)]="question.answer"
+        ></textarea>
+      </div>
+      <button class="btn btn-secondary col-sm-1">
+        Back
+      </button>
+      <button class="btn btn-secondary col-sm-1" type="submit">Save</button>
+    </form>
+  </article>
+</div>

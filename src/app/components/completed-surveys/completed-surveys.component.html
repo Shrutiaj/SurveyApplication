@@ -1,0 +1,22 @@
+<div class="completedSurveys" *ngIf="user">
+  <article>
+    <h4>List of Completed Surveys:</h4>
+    <ul>
+      <li
+        *ngFor="
+          let submittedSurvey of user.submittedSurveys | unique: 'surveyname'
+        "
+        class="p-2 mb-1"
+      >
+        <a
+          [routerLink]="[
+            '/home/' + username + '/survey',
+            submittedSurvey.survey_id
+          ]"
+          [queryParams]="{ isSubmitted: 'true' }"
+          >{{ submittedSurvey.surveyname }}</a
+        >
+      </li>
+    </ul>
+  </article>
+</div>
