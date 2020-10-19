@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: shrutijain
+Build-Jdk: 10.0.2
+Implementation-Title: surveyrestapi Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.survey
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+
