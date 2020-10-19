@@ -46,7 +46,7 @@
     </div>
   </div>
   <!--Loads child components in this section-->
-  <section class="survey_detail col-sm-9 p-3" *ngIf="user">
+  <section class="survey_detail col-sm-9 p-3" *ngIf="user.username">
     <!--Display the details of surveys completed by logged in user-->
     <div class="clearfix mb-3">
       <a routerLink="surveyList" class="float-left">Home</a>

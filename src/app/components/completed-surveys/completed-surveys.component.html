@@ -1,4 +1,4 @@
-<div class="completedSurveys" *ngIf="user">
+<div class="completedSurveys" *ngIf="user; else errorMessage">
   <article>
     <h4>List of Completed Surveys:</h4>
     <ul>
@@ -11,7 +11,7 @@
         <a
           [routerLink]="[
             '/home/' + username + '/survey',
-            submittedSurvey.survey_id
+            submittedSurvey.surveyId
           ]"
           [queryParams]="{ isSubmitted: 'true' }"
           >{{ submittedSurvey.surveyname }}</a
@@ -20,3 +20,4 @@
     </ul>
   </article>
 </div>
+<ng-template #errorMessage>{{ errMsg }}</ng-template>

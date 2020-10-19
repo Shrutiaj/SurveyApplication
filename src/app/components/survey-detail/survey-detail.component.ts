@@ -11,11 +11,17 @@ import { CompletedSurveysService } from "src/app/services/completed-surveys.serv
   styleUrls: ["./survey-detail.component.scss"],
 })
 export class SurveyDetailComponent implements OnInit {
-  private surveyId;
-  username: string;
-  private isSubmitted: string;
-  survey = [];
-  submittedSurveys = [];
+  private surveyId; // to get the survey details from API
+  private isSubmitted = "false"; // checks if survey is submitted
+  errMessage: string; // to display in case error occurs
+  username = "";
+  survey = {
+    surveyId: 0,
+    customerId: 0,
+    surveyName: "",
+    surveyQuestions: [],
+  }; // stores details about the survey
+  submittedSurveys = []; // stores the submitted survey
 
   constructor(
     private route: ActivatedRoute,
@@ -31,29 +37,72 @@ export class SurveyDetailComponent implements OnInit {
     );
     this.route.paramMap.subscribe(
       (params) => {
-        this.surveyId = params.get("survey_id");
+        this.surveyId = params.get("surveyId");
         this.submittedSurveys = this.surveyHomeComponent.user.submittedSurveys.filter(
-          (obj) => obj.survey_id == this.surveyId
+          (obj) => obj.surveyId == this.surveyId
         );
+
         this.completedSurveysService.getSurveyById(this.surveyId).subscribe(
           (survey) => {
             if (this.isSubmitted == "true") {
               for (var submittedSurvey of this.submittedSurveys) {
                 survey.surveyQuestions.find(
-                  (elem) => elem.question_id == submittedSurvey.question_id
+                  (elem) => elem.questionId == submittedSurvey.questionId
                 ).answer = submittedSurvey.answer;
               }
             }
-            this.survey = survey;
+            this.survey.surveyId = survey.surveyId;
+            this.survey.customerId = survey.customerId;
+            this.survey.surveyName = survey.surveyName;
+            this.survey.surveyQuestions = survey.surveyQuestions;
+            this.survey.surveyQuestions.sort((elem1, elem2) => {
+              console.log(elem1.answer);
+              return elem1.questionId - elem2.questionId;
+            });
           },
-          (error) => console.log(error)
+          (error) => {
+            console.log(error);
+            this.errMessage =
+              "There is a problem with your request. Please try again later...";
+          }
         );
       },
-      (error) => console.log(error)
+      (error) => {
+        console.log(error);
+        this.errMessage =
+          "There is a problem with your request. Please try again later...";
+      }
     );
   }
 
   onSubmit() {
+    if (this.isSubmitted == "true") {
+      for (let updatedSurvey of this.survey.surveyQuestions) {
+        this.submittedSurveys.find(
+          (elem) => elem.questionId == updatedSurvey.questionId
+        ).answer = updatedSurvey.answer;
+      }
+      this.completedSurveysService
+        .updateSurvey(this.submittedSurveys)
+        .subscribe();
+    } else {
+      for (let question of this.survey.surveyQuestions) {
+        let submittedSurvey = {
+          questionId: 0,
+          answer: "",
+          username: this.username,
+          customerId: this.survey.customerId,
+          surveyId: this.survey.surveyId,
+        };
+        submittedSurvey.answer = question.answer;
+        submittedSurvey.questionId = question.questionId;
+        this.submittedSurveys.push(submittedSurvey);
+      }
+      this.completedSurveysService
+        .saveSurvey(this.submittedSurveys)
+        .subscribe();
+    }
+
     this.router.navigateByUrl(`home/${this.username}`);
   }
 }

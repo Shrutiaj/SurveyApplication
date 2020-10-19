@@ -6,27 +6,33 @@
  ***********************************************************************************************************************/
 
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 import { CustomerListService } from "../../services/customer-list.service";
 import { CompletedSurveysService } from "src/app/services/completed-surveys.service";
+import { UserDataService } from "src/app/services/user-data.service";
 
 @Component({
   selector: "app-survey-home",
   templateUrl: "./survey-home.component.html",
   styleUrls: ["./survey-home.component.scss"],
+  // providers: [LoginComponent],
 })
 export class SurveyHomeComponent implements OnInit {
   customers = []; //object to contain the customers list from the API
   username: string; //to store the username from the login form
-  user: any;
+  user = {
+    username: "",
+    password: "",
+    submittedSurveys: [],
+  };
 
   constructor(
     private customerListService: CustomerListService,
     private completedSurveysService: CompletedSurveysService,
-    private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userDataService: UserDataService,
+    private route: ActivatedRoute
   ) {}
 
   //Angular life cycle hook Interface method, used for initiation, called after constructor
@@ -35,6 +41,12 @@ export class SurveyHomeComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.username = params.get("username");
     });
+
+    // this.username = this.loginComponent.user.username;
+    // this.userDataService.currentUser.subscribe(
+    //   (user) => (this.username = user.username)
+    // );
+    // console.log("AFTER::" + this.username);
 
     //Get the list of customers to display in the left navgation using the service CustomerListService
     this.customerListService.getCustomerList().subscribe(
@@ -48,7 +60,11 @@ export class SurveyHomeComponent implements OnInit {
       .getCompletedSuvreyList(this.username)
       .subscribe(
         (user) => {
-          this.user = user;
+          this.user = {
+            username: user.username,
+            password: user.password,
+            submittedSurveys: user.submittedSurveys,
+          };
         },
         (error) => console.log(error)
       );
@@ -58,6 +74,11 @@ export class SurveyHomeComponent implements OnInit {
   signOut() {
     //Clear the username for the logged in user from the component variable.
     this.username = "";
+    this.user = {
+      username: "",
+      password: "",
+      submittedSurveys: [],
+    };
     this.router.navigateByUrl("login");
   }
 }

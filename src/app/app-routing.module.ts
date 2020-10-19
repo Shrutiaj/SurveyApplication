@@ -13,7 +13,7 @@ const routes: Routes = [
     component: SurveyHomeComponent,
     children: [
       { path: "surveyList", component: CompletedSurveysComponent },
-      { path: "survey/:survey_id", component: SurveyDetailComponent },
+      { path: "survey/:surveyId", component: SurveyDetailComponent },
       { path: "", redirectTo: "surveyList", pathMatch: "full" },
     ],
   },

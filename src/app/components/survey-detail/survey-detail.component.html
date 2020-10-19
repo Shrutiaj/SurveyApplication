@@ -1,26 +1,46 @@
-<div *ngIf="survey != {}">
-  <article>
-    <h3>{{ survey.survey_name }}</h3>
-    <form #surveyForm="ngForm" (ngSubmit)="onSubmit()">
-      <div
-        class="questions form-group"
-        *ngFor="let question of survey.surveyQuestions"
-      >
-        <label for="q{{ question.question_id }}">{{ question.question }}</label
-        ><br />
-        <textarea
-          rows="3"
-          cols="60"
-          id="q{{ question.question_id }}"
-          class="form-control"
-          name="answer{{ question.question_id }}"
-          [(ngModel)]="question.answer"
-        ></textarea>
-      </div>
-      <button class="btn btn-secondary col-sm-1">
-        Back
-      </button>
-      <button class="btn btn-secondary col-sm-1" type="submit">Save</button>
-    </form>
-  </article>
-</div>
+<div *ngIf="errMessage; else surveyDetail">{{ errMessage }}</div>
+<ng-template #surveyDetail>
+  <div *ngIf="survey">
+    <article>
+      <h3>{{ survey.surveyName }}</h3>
+      <form (ngSubmit)="onSubmit()" name="surveyForm">
+        <div
+          class="questions form-group"
+          *ngFor="let question of survey.surveyQuestions"
+        >
+          <label for="q{{ question.questionId }}">{{ question.question }}</label
+          ><br />
+          <textarea
+            rows="3"
+            cols="60"
+            id="q{{ question.questionId }}"
+            class="form-control"
+            name="answer{{ question.questionId }}"
+            [(ngModel)]="question.answer"
+          ></textarea>
+        </div>
+        <button class="btn btn-secondary col-sm-1">
+          Back
+        </button>
+        <button
+          *ngIf="isSubmitted == 'false'"
+          class="btn btn-secondary col-sm-1"
+          type="submit"
+          name="submitBtn"
+          data-name="Save"
+        >
+          Save
+        </button>
+        <button
+          *ngIf="isSubmitted == 'true'"
+          class="btn btn-secondary col-sm-1"
+          type="submit"
+          name="submitBtn"
+          data-name="Update"
+        >
+          Update
+        </button>
+      </form>
+    </article>
+  </div>
+</ng-template>
